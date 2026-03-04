@@ -1,38 +1,25 @@
 #include <iostream>
 
-class RekeningBank {
-public:
-  RekeningBank (double saldo_awal) {
-    saldo = saldo_awal;
-  }
+class Titik2D {  
+private:  
+    double x, y;
 
-  void cek() {
-    std::cout << "Sisa saldo: " << saldo << std::endl;
-  }
-
-  void setor(double jumlah) {
-    saldo += jumlah;
-    std::cout << "Sisa saldo: " << saldo << std::endl;
-  }
-
-  void tarik(double jumlah) {
-    if (jumlah > saldo) {
-      std::cout << "Penarikan Gagal" << std::endl;
-    } else {
-      saldo -= jumlah;
-      std::cout << "Sisa saldo: " << saldo << std::endl;
-    }
-  }
-
-private:
-  double saldo;
+public:  
+    // Constructor (Dipanggil otomatis saat objek dibuat)  
+    Titik2D(double nilai_x, double nilai_y) {   
+        x = nilai_x;  
+        y = nilai_y;  
+    }  
+      
+    void cetak() {   
+        std::cout << "X: " << x << " | Y: " << y << std::endl;   
+    }  
 };
 
-int main (int argc, char *argv[]) {
-  RekeningBank rekening1(1000.00);
-  rekening1.cek();
-  rekening1.setor(1000.00);
-  rekening1.tarik(1500.00);
-  rekening1.tarik(501.00);
-  return 0;
+int main() {  
+    // Objek dibuat sekaligus diberi nilai awal via Constructor  
+    Titik2D titikA(10.5, 20.2);   
+    titikA.cetak();  
+      
+    return 0;  
 }
